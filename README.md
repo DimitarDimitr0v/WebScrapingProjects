@@ -4,7 +4,6 @@ My first web scraping project involved using Python libraries like urllib.reques
 
 <div>
   <p>Technologies used: Python with SublimeText3<p>
-  <br>
   <p>Libraries: urllink (.request), BeautifulSoap</p>
 </div>
 
