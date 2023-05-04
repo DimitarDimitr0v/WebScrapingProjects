@@ -18,7 +18,7 @@ for current_url in my_urls:
 	# as if it were a json data type.
 	page_soup = soup(uClient.read(), "html.parser")
 	uClient.close()
-	
+
 
 	# finds each product from the store page
 	containers = page_soup.findAll("div", {"class":"item-cell"})
@@ -45,12 +45,12 @@ for current_url in my_urls:
 		title_container = container.findAll("a", {"class":"item-title"})[0]
 		product_name = title_container.text
 
-		comersial_info_container = container.findAll("div", {"class":"item-action"})[0]
-		shipping_container = comersial_info_container.findAll("li", {"class":"price-ship"})[0]
+		commercial_info_container = container.findAll("div", {"class": "item-action"})[0]
+		shipping_container = commercial_info_container.findAll("li", {"class": "price-ship"})[0]
 		shipping = shipping_container.text
 
 
-		price_container = comersial_info_container.findAll("li", {"class":"price-current"})[0]
+		price_container = commercial_info_container.findAll("li", {"class": "price-current"})[0]
 		dollars = price_container.strong.text.replace(",", "")
 		pennies = price_container.sup.text.replace(".", "")
 
@@ -66,7 +66,7 @@ for current_url in my_urls:
 		if "\n" in shipping:
 			f.write(brand + "," + product_name + "," + price + "," + "Shipping price not found" + "\n")
 			continue
-		
+
 		# prints the dataset to console
 		print("brand:" + brand)
 		print("product_name:" + product_name)
